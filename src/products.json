@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "name": "Combat Boots",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": 100,
+    "size": "S",
+    "sex": "M",
+    "sale": false,
+    "inStock": true,
+
+    "image": "https://www.stickpng.com/assets/thumbs/580b57fbd9996e24bc43beda.png"
+  },
+  {
+    "id": 2,
+    "name": "Grey Boots",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": 120,
+    "size": "M",
+    "sex": "M",
+    "sale": true,
+    "inStock": true,
+
+    "image": "https://www.stickpng.com/assets/thumbs/580b57fbd9996e24bc43bedb.png"
+  },
+  {
+    "id": 3,
+    "name": "Calvin Klein Jeans",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": 150,
+    "size": ["M", "S", "L"],
+    "sex": "Unisex",
+    "sale": true,
+    "inStock": true,
+
+    "image": "https://www.stickpng.com/assets/thumbs/580b57fbd9996e24bc43bf35.png"
+  },
+  {
+    "id": 4,
+    "name": "Light Blue Washed Jeans",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": 200,
+    "size": "L",
+    "sale": false,
+    "sex": "M",
+    "inStock": false,
+    "image": "https://www.stickpng.com/assets/thumbs/580b57fbd9996e24bc43bf37.png"
+  },
+  {
+    "id": 5,
+    "name": "Black Polo",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": 50,
+    "size": "S",
+    "sex": "M",
+    "inStock": true,
+    "sale": "true",
+    "image": "https://www.stickpng.com/assets/thumbs/580b57fbd9996e24bc43bf4f.png"
+  },
+  {
+    "id": 6,
+    "name": "Red Polo",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": 350,
+    "sale": true,
+    "size": ["L", "XL"],
+    "sex": "M",
+    "inStock": true,
+    "image": "https://www.stickpng.com/assets/thumbs/580b57fbd9996e24bc43bf53.png"
+  }
+]

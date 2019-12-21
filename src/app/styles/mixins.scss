@@ -1,0 +1,70 @@
+@mixin create-mediaquery($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+@mixin item-heading() {
+  font-weight: normal;
+  font-family: "Quicksand";
+  font-size: 1.8rem;
+  margin: 1rem 0 1rem 0;
+  text-align: center;
+}
+@mixin cart-text {
+  font-weight: bold;
+  font-size: 1.15rem;
+  font-family: "Quicksand";
+  padding: 1rem;
+  text-align: left;
+}
+@mixin responsive-image {
+  width: 100%;
+  height: auto;
+  objeect-fit: cover;
+}
+@mixin default-text {
+  font-weight: normal;
+  color: grey;
+  font-size: 1.15rem;
+  font-family: "Quicksand";
+  text-align: left;
+}
+@mixin custom-input-hidden() {
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+@mixin shadow-outline($radius) {
+  content: "";
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  border-radius: $radius;
+  transition: 0.3s ease-out;
+  background: #74b9ff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1);
+}
+
+@mixin shadow-outline-focus {
+  opacity: 1 !important;
+  box-shadow: 0px 0px 30px 5px rgba(116, 185, 255, 0.4);
+}
+
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+  @include create-mediaquery($breakpoint) {
+    @for $i from 1 through $grid-cols {
+      &-col#{$modifier}-#{$i} {
+        flex-basis: (100 / ($grid-cols / $i)) * 1%;
+      }
+    }
+  }
+}

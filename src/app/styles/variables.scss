@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Pontano+Sans|Quicksand|Abel&display=swap");
+
+$columns: 12;
+
+// grid breakpoints
+$grid-bp-sm: 46em;
+$grid-bp-md: 61em;
+$grid-bp-lg: 992;
+$grid-bp-xl: 1200;
+$grid-bp-xxl: 1440;
+
+// map for cols
+$map-grid-props: (
+  "": 0,
+  "-sm": $grid-bp-sm,
+  "-md": $grid-bp-md,
+  "-lg": $grid-bp-lg,
+  "-xl": $grid-bp-xl,
+  "-xxl": $grid-bp-xxl
+);
+
+// map for container's max-width
+
+$map-container-width: (
+  #{$grid-bp-sm}: 540,
+  #{$grid-bp-md}: 720,
+  #{$grid-bp-lg}: 960,
+  #{$grid-bp-xl}: 1140,
+  #{$grid-bp-xxl}: 1380
+);
+
+// extra var
+
+$link-color: rgba(128, 128, 128, 0.75);
+$link-font-size: 1.5rem;
+$link-font-weight: normal;
+$link-font: "Quicksand";
+$bg-grey: #f1f3f5;
+$search-input-radius: 28px;

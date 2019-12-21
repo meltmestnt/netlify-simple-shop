@@ -1,0 +1,706 @@
+.product-content {
+  padding: 3rem;
+  @include create-mediaquery($grid-bp-md) {
+    padding: 0;
+  }
+  .product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: relative;
+    img {
+      width: 75%;
+      height: auto;
+    }
+  }
+  .product-info {
+    background: $bg-grey;
+    padding: 1rem;
+    .product-name,
+    .product-description,
+    .product-price,
+    .product-instock,
+    .product-sex,
+    .product-size {
+      @include item-heading;
+      margin: 1rem;
+      margin-left: 0;
+      text-align: left;
+    }
+    .product-price {
+      background: rgba(16, 172, 132, 1);
+      padding: 1rem;
+      display: inline-block;
+    }
+  }
+}
+
+.checkout-form {
+  min-height: calc(100vh - 108px);
+  padding: 3rem;
+  width: 100%;
+  .form-button {
+    min-width: 250px;
+    padding: 1rem 1rem 1rem 1rem;
+    font-weight: normal;
+    @include item-heading;
+    border: none;
+    background-color: $bg-grey;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 1px lightgrey;
+  }
+  .split-form {
+    @include flexbox();
+    @include flex-direction(column);
+    text-align: left;
+    @include align-items(start);
+    width: 100%;
+    margin: 1rem;
+    margin-top: 0;
+    label {
+      @include item-heading;
+      width: 75%;
+    }
+    .StripeElement,
+    input {
+      margin-top: 0.5rem;
+      border: none;
+      font-size: 1.5rem;
+      background: $bg-grey;
+      height: 40px;
+      width: 100%;
+      padding: 0.3rem;
+    }
+    input::placeholder {
+      color: "#9BACC8";
+    }
+    input:focus::placeholder {
+      color: "#CFD7DF";
+    }
+  }
+}
+.bg-grey {
+  background: $bg-grey;
+  min-height: calc(100vh - 108px);
+  position: relative;
+  @include flexbox();
+  @include align-items(center);
+  @include flex-direction(column);
+  .cart-button-wrapper {
+    width: 50%;
+    min-width: 250px;
+    margin-bottom: 2.5rem;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+
+    border-right: 20px solid white;
+  }
+  .cart-price-container {
+    width: 100%;
+    padding: 0rem 1rem 3rem 1rem;
+    @include flexbox();
+    @include flex-just(center);
+    .total-price {
+      @include item-heading();
+    }
+  }
+  .cartproducts-section {
+    background: $bg-grey;
+    position: relative;
+    width: 100%;
+    padding: 3rem 0rem 3rem 3rem;
+    @include create-mediaquery($grid-bp-md) {
+      padding: 0;
+    }
+  }
+  .cart-product {
+    @include flexbox();
+    @include flex-just(space-between);
+    width: 100%;
+    background: transparent;
+    @include align-items(center);
+    .cart-product-wrapper {
+      @include flexbox();
+      @include align-items(center);
+      background: transparent;
+    }
+    .cart-products-controls {
+      padding: 2rem;
+      @include flexbox();
+      font-size: 2rem;
+      @include align-items(center);
+      span {
+        margin: 1rem;
+        @include flexbox();
+        @include align-items(center);
+        cursor: pointer;
+        &:last-child {
+          display: inline-block;
+          height: 15px;
+          background: transparent;
+          width: 15px;
+          position: relative;
+          &::after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 1px;
+            content: "";
+            transform: translate(-50%, -50%);
+            background: black;
+          }
+        }
+      }
+      .control-amount {
+        @include cart-text;
+        padding-left: 0;
+        padding-right: 0;
+        position: relative;
+        text-align: left;
+      }
+    }
+    .cart-product-image {
+      min-width: 100px;
+      min-height: 100px;
+      max-width: 110px;
+      max-height: 110px;
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+    .cart-product-info {
+      @include flexbox();
+      @include flex-direction(column);
+      @include align-items(start);
+      padding: 1rem;
+      .cart-product-heading {
+        @include item-heading;
+        text-align: left;
+        margin: 0 0 0.5rem 0;
+      }
+      .cart-product-price {
+        background: rgba(129, 236, 236, 0.7);
+        @include cart-text;
+      }
+      .cart-product-description {
+        @include cart-text;
+        padding: 0;
+        margin: 0.5rem 0rem 0.5rem 0rem;
+      }
+    }
+  }
+}
+.custom-button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-family: "Quicksand";
+  color: rgba(10, 189, 227, 1);
+  background: transparent;
+  transition: 0.25s;
+  padding: 0.8rem;
+  border-radius: 2px;
+  &:hover {
+    background: rgba(211, 211, 211, 0.5);
+  }
+}
+.buttons {
+  @include flexbox();
+  width: 100%;
+}
+.item-card {
+  @include flexbox();
+  @include flex-direction(column);
+  @include flex-just(space-around);
+  height: 100%;
+  border-radius: 6px;
+  background-color: rgba(211, 211, 211, 0.15);
+  box-shadow: 0px 0px 10px -1px rgba(211, 211, 211, 0.5);
+  padding: 0.5rem 0 0.5rem 0;
+  transition: 0.1s;
+  .item-card-badge {
+    position: relative;
+    overflow: hidden;
+    max-height: 60px;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    z-index: 1;
+    padding: 12px 14px;
+    border-radius: 2px 2px 0 0;
+    color: #fff;
+    text-align: left;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &:before {
+      background: #a5daff;
+      height: 100%;
+      width: 110%;
+      transform-origin: bottom right;
+      transform: rotate(1deg);
+    }
+
+    &:after {
+      background: #3fb0ff;
+      transform: rotate(-3deg);
+      transform-origin: bottom left;
+      height: 100%;
+      width: 110%;
+    }
+  }
+
+  .item-card-badge-content {
+    position: relative;
+    z-index: 1;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+  .item-card-heading {
+    @include item-heading;
+  }
+  .item-card-img {
+    width: 100%;
+    padding: 2rem;
+    margin: 1rem 0 1rem 0;
+    .card-img {
+      @include responsive-image;
+    }
+  }
+  .item-card-body {
+    padding: 0.5rem;
+    .item-card-text {
+      @include default-text;
+    }
+    .item-card-text-sizes {
+      margin: 1rem 0rem 1rem 0rem;
+      display: inline-block;
+    }
+    button {
+      margin: 1rem 0 1rem 0;
+    }
+  }
+}
+.error {
+  @include item-heading;
+  color: rgba(238, 82, 83, 1);
+}
+.sidebar {
+  background: transparent;
+  @include create-mediaquery($grid-bp-md) {
+    background: rgba(47, 54, 64, 1);
+  }
+}
+
+.custom-input-wrapper {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  @include flexbox();
+  @include flex-wrap(wrap);
+  @include align-items(center);
+  label {
+    @include item-heading;
+  }
+  .custom-checkbox-wrapper {
+    width: 35px;
+    height: 35px;
+    margin: 1rem 0 1rem 1rem;
+    position: relative;
+    @include flexbox();
+    @include flex-just(center);
+    @include align-items(center);
+    border-radius: 4px;
+    .custom-checkbox {
+      @include custom-input-hidden;
+      &-checked + span {
+        color: white;
+        transition-delay: 0.15s;
+        border: 3px solid rgba(116, 185, 255, 1);
+        @include shadow-outline-focus;
+        &::after {
+          background: rgba(116, 185, 255, 1);
+        }
+      }
+    }
+    span {
+      width: 100%;
+      height: 100%;
+      color: black;
+      background: transparent;
+      font-weight: bold;
+      color: transparent;
+      border-radius: 4px;
+      font-size: 1.5rem;
+      @include flexbox();
+      transition: 0.2s ease-out;
+      @include align-items(center);
+      @include flex-just(center);
+      position: relative;
+      border: 3px solid rgba(211, 211, 211, 0.7);
+      z-index: 99;
+      overflow: hidden;
+      &::after {
+        border-radius: 4px;
+        transition: 0.4s ease;
+        position: absolute;
+        top: 50%;
+        z-index: -1;
+        left: 50%;
+        width: 110%;
+        height: 110%;
+        content: "";
+        transform: translate(-50%, -50%);
+        background: transparent;
+      }
+    }
+  }
+  .custom-switch-wrapper {
+    width: 75px;
+    height: 35px;
+    margin: 1rem 0 1rem 1rem;
+    position: relative;
+    .custom-switch {
+      @include custom-input-hidden;
+
+      &-checked + span {
+        background-color: rgba(0, 184, 148, 1);
+        &::after {
+          left: 100%;
+          transform: translate(-115%, -50%);
+        }
+        &::before {
+          @include shadow-outline-focus;
+        }
+      }
+    }
+    span {
+      width: 100%;
+      transition: 0.2s ease-out;
+      position: absolute;
+      height: 100%;
+      border-radius: 20px;
+      background-color: lightgrey;
+      top: 0;
+      left: 0;
+      &::before {
+        @include shadow-outline(20px);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transition: 0.3s ease-out;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        background-color: white;
+      }
+    }
+  }
+  .custom-range-input {
+    margin: 1.5rem 0 1.5rem 0;
+    width: 100%;
+
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+
+    &:focus {
+      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+    }
+
+    &::-ms-track {
+      width: 100%;
+      cursor: pointer;
+
+      /* Hides the slider so custom styles can be added */
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 25px;
+      transition: 0.3s;
+      width: 25px;
+      border-radius: 50%;
+      background: rgba(99, 110, 114, 1);
+      cursor: pointer;
+      border: 7px solid rgba(99, 110, 114, 1);
+      margin-top: -7px;
+      /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */ /* Add cool effects to your sliders! */
+    }
+    &::moz-range-thumb {
+      -webkit-appearance: none;
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      background: rgba(99, 110, 114, 1);
+      cursor: pointer;
+      border: 7px solid rgba(99, 110, 114, 1);
+      margin-top: -7px;
+    }
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      background: rgba(211, 211, 211, 0.5);
+      border-radius: 8px;
+    }
+    &:focus::-webkit-slider-thumb {
+      background-color: rgba(9, 132, 227, 0.6);
+      border: 5px solid rgba(99, 110, 114, 0.4);
+      box-shadow: 0px 0px 25px 5px rgba(116, 185, 255, 1);
+    }
+  }
+  .custom-search-input {
+    height: 60px;
+    padding: 15px;
+    padding-right: 50px;
+    font-size: 1.3rem;
+    border-radius: 28px;
+    outline: none;
+    background-color: $bg-grey;
+    border: none;
+    color: black;
+    transition: 0.3s;
+    position: relative;
+    z-index: 10;
+    &:focus + span {
+      background-color: #74b9ff;
+      box-shadow: 0px 0px 10px 5px rgba(116, 185, 255, 0.4);
+      opacity: 1;
+    }
+  }
+  .search-button {
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    top: 0;
+    right: 0;
+    color: gray;
+    font-size: 1.2rem;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    z-index: 11;
+    cursor: pointer;
+  }
+  & > span {
+    display: inline-block;
+    @include shadow-outline($search-input-radius);
+    z-index: 1;
+  }
+}
+
+.nav {
+  @include flexbox();
+  @include align-items(center);
+  @include flex-just(space-between);
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background: white;
+  box-shadow: 0 0.25rem 0.125rem 0 rgba(0, 0, 0, 0.05);
+  .nav-brand {
+    height: 100%;
+    width: 100%;
+    .nav-toggle {
+      width: 60px;
+      height: 60px;
+      display: none;
+      position: relative;
+      .burger {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 2.1rem;
+        width: 100%;
+        @include flexbox();
+        @include flex-just(center);
+        @include align-items(center);
+        height: 100%;
+        opacity: 0;
+        transition: 0.5s;
+        color: $link-color;
+      }
+      span {
+        width: 60%;
+        transition: 0.5s;
+        height: 3px;
+        background-color: $link-color;
+        border-radius: 4px;
+      }
+      &:hover {
+        span {
+          opacity: 0;
+        }
+        .burger {
+          opacity: 1;
+        }
+      }
+    }
+    .nav-brand-img {
+      width: 60px;
+      height: auto;
+    }
+  }
+  .nav-ul {
+    @include flexbox();
+    @include align-items(center);
+    .nav-item {
+      margin: 1rem;
+      list-style: none;
+      position: relative;
+      .nav-link {
+        text-decoration: none;
+        color: $link-color;
+        font-size: $link-font-size;
+        font-weight: $link-font-weight;
+        transition: 0.5s;
+        font-family: $link-font;
+        &:hover {
+          color: black;
+        }
+      }
+      .active {
+        color: black;
+      }
+    }
+  }
+  @include create-mediaquery($grid-bp-md) {
+    & {
+      @include flex-direction(column);
+      .nav-ul {
+        @include flex-direction(column);
+        @include align-items(center);
+        text-align: center;
+        transition: 0.4s ease-out;
+        max-height: 0;
+        overflow: hidden;
+        &-active {
+          max-height: 400px;
+        }
+      }
+      .nav-brand {
+        @include flexbox();
+        @include flex-just(space-between);
+        .nav-toggle {
+          @include flexbox();
+          @include flex-just(center);
+          @include align-items(center);
+          @include flex-direction(column);
+          span {
+            display: block;
+            margin: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.custom-button-rect {
+  padding: 1rem 2rem 1rem 2rem;
+  width: 100%;
+  margin: 1rem 0rem 1rem 0rem;
+  border: 4px solid transparent;
+  @include item-heading;
+  cursor: pointer;
+  background-color: rgba(211, 211, 211, 0.3);
+  box-shadow: 0px 5px 5px 0px rgba(211, 211, 211, 0.4);
+  transition: 0.3s;
+  &:active {
+    transform: translateY(3px);
+    border: 4px solid rgba(116, 185, 255, 1);
+    box-shadow: 0px 0px 35px 1px rgba(116, 185, 255, 0.4);
+  }
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
+.loader-wrapper {
+  display: block;
+  width: 100%;
+  @include flexbox();
+  @include flex-just(center);
+}
+.big-ring {
+  display: inline-block;
+  position: relative;
+  width: 169px;
+  height: 169px;
+  div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 156px;
+    height: 156px;
+    margin: 4px;
+    border: 4px solid grey;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: lightgrey transparent transparent transparent;
+  }
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  margin: 3px;
+  border: 3px solid grey;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: lightgrey transparent transparent transparent;
+}
+.lds-ring,
+.big-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring,
+.big-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring,
+.big-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
